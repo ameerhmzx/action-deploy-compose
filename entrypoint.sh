@@ -35,7 +35,7 @@ then
     if [ -f \$workdir/$DOCKER_COMPOSE_FILENAME ] 
     then
       log 'Docker Compose Down...'; 
-      docker-compose -f \$workdir/$DOCKER_COMPOSE_FILENAME down
+      docker compose -f \$workdir/$DOCKER_COMPOSE_FILENAME down
     fi
     log 'Removing workspace...'; 
     rm -rf \$workdir; 
@@ -47,9 +47,9 @@ mkdir \$workdir;
 log 'Unpacking workspace...'; 
 tar -C \$workdir -xjv; 
 
-log 'Launching docker-compose...'; 
+log 'Launching docker compose...'; 
 cd \$workdir; 
-docker-compose -f \"$DOCKER_COMPOSE_FILENAME\" -p \"$DOCKER_COMPOSE_PREFIX\" up -d --remove-orphans --build"
+docker compose -f \"$DOCKER_COMPOSE_FILENAME\" -p \"$DOCKER_COMPOSE_PREFIX\" up -d --remove-orphans --build"
 
 echo ">> [local] Connecting to remote host."
 ssh -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null \

@@ -13,13 +13,14 @@ inputs:
     required: true
   ssh_user:
     description: Remote user name.
+    default: docker-deploy
     required: true
   docker_compose_prefix:
     description: Prefix for docker-compose containers. Must be unique for each repository if deploying to same remote.
     required: true
   docker_compose_filename:
     description: Docker compose file to use
-    default: docker-compose.yaml
+    default: docker-compose.yml
 runs:
   using: docker
   image: Dockerfile
